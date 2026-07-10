@@ -1,23 +1,1175 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "구미개인회생 전문 법률지원센터",
+    "description": "2026년 최신 구미개인회생 및 개인파산 전문 상담. 대구회생법원 구미시 관할 맞춤형 변제금 계산기, 최저생계비 기준, 연령별 및 직업별 탕감 후기 및 합리적인 수임료 비교.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "경상북도 구미시 송정대로 100",
+      "addressLocality": "구미시",
+      "addressRegion": "경상북도",
+      "postalCode": "39200",
+      "addressCountry": "KR"
+    },
+    "telephone": "054-999-1000",
+    "url": "https://legal.reliabledone.com/rehab-gumi",
+    "openingHours": "Mo-Su 09:00-22:00",
+    "priceRange": "$$",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "구미시" },
+      { "@type": "AdministrativeArea", "name": "송정동" },
+      { "@type": "AdministrativeArea", "name": "원평동" },
+      { "@type": "AdministrativeArea", "name": "형곡동" },
+      { "@type": "AdministrativeArea", "name": "신평동" },
+      { "@type": "AdministrativeArea", "name": "봉곡동" },
+      { "@type": "AdministrativeArea", "name": "도량동" },
+      { "@type": "AdministrativeArea", "name": "인동" },
+      { "@type": "AdministrativeArea", "name": "옥계동" },
+      { "@type": "AdministrativeArea", "name": "산동읍" },
+      { "@type": "AdministrativeArea", "name": "선산읍" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "구미 채무조정 법률 서비스",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"구미개인회생 자격 진단"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"구미개인회생 변제금 계산"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"대구회생법원 보정 대응"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"구미 자영업자 회생 전문"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"구미 주부 및 청년 채무조정"}}
+      ]
+    }
+  }
+  </script>
+
+  <!-- CSS 스타일링 -->
+  <style>
+    :root {
+      --primary-color: #2F5597;
+      --primary-light: #F2F5FA;
+      --secondary-color: #2E8B57;
+      --secondary-light: #F0F7F4;
+      --accent-color: #E28743;
+      --accent-light: #FDF3EB;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --border-color: #D3D3D3;
+      --bg-gradient: linear-gradient(135deg, #2F5597 0%, #1F3864 100%);
+      --border-radius: 12px;
+      --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      --transition-speed: 0.3s;
+    }
+
+    body {
+      font-family: 'Malgun Gothic', '맑은 고딕', 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-main);
+      line-height: 1.9;
+      background-color: #FAFAFA;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--bg-gradient);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      font-weight: 300;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(5px);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 600;
+      padding: 10px 18px;
+      transition: all var(--transition-speed);
+      border-radius: var(--border-radius);
+      font-size: 1.05em;
+    }
+
+    nav a:hover {
+      background-color: var(--primary-light);
+      color: #1F3864;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: #FFFFFF;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      padding: 45px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    section h2 {
+      color: var(--primary-color);
+      font-size: 2.1em;
+      margin-bottom: 25px;
+      border-left: 6px solid var(--primary-color);
+      padding-left: 15px;
+      line-height: 1.3;
+    }
+
+    section h3 {
+      color: var(--secondary-color);
+      font-size: 1.5em;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    /* CTA Button Styles */
+    .cta-container {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 18px 45px;
+      font-size: 1.25em;
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      transition: background-color var(--transition-speed);
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(226, 135, 67, 0.4);
+    }
+
+    .cta-btn:hover {
+      background-color: #CD722B;
+    }
+
+    /* Grid Layouts */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .info-card {
+      background-color: #FAFBFD;
+      padding: 25px;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(47, 85, 151, 0.08);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .info-card h4 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      font-size: 1.25em;
+    }
+
+    /* Table Styles */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #FFFFFF;
+      min-width: 600px;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 15px;
+      text-align: left;
+      font-size: 0.95em;
+    }
+
+    th {
+      background-color: var(--primary-light);
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #FAFBFD;
+    }
+
+    /* Interactive Calculator & Multi-Step Form */
+    .calculator-box {
+      background-color: var(--primary-light);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(47, 85, 151, 0.15);
+      margin-top: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--primary-color);
+    }
+
+    .input-group input, .input-group select, .input-group textarea {
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #FFFFFF;
+      transition: border-color var(--transition-speed);
+    }
+
+    .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    .calc-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color var(--transition-speed);
+      width: 100%;
+    }
+
+    .calc-btn:hover {
+      background-color: #1F3864;
+    }
+
+    #calc-result {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #FFFFFF;
+      border: 1px dashed var(--primary-color);
+      display: none;
+    }
+
+    .result-table {
+      margin-top: 15px;
+    }
+
+    .result-table th {
+      background-color: #F0F4FA;
+    }
+
+    .highlight-text {
+      color: #D9534F;
+      font-weight: bold;
+    }
+
+    /* Multi-step Form Container */
+    .multi-step-container {
+      background-color: #FFFFFF;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      margin-top: 40px;
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 15px;
+    }
+
+    .ind-step {
+      font-size: 0.95em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .ind-step.active {
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 12px;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .form-desc {
+      font-size: 0.9em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .btn-next, .btn-submit {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      flex-grow: 1;
+    }
+
+    .btn-prev {
+      background-color: #E0E0E0;
+      color: #333333;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .checkbox-group {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .checkbox-group input {
+      margin-top: 5px;
+    }
+
+    /* External links */
+    .external-links-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .external-links-list li {
+      margin-bottom: 12px;
+      padding-left: 15px;
+      border-left: 3px solid var(--secondary-color);
+    }
+
+    .external-links-list a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .external-links-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Gumi regions & demographics grid */
+    .columns-list {
+      column-count: 2;
+      column-gap: 30px;
+      padding-left: 20px;
+    }
+
+    .columns-list li {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    /* FAQ List */
+    .faq-item {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #EEEEEE;
+      padding-bottom: 20px;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 1.15em;
+      margin-bottom: 10px;
+    }
+
+    .faq-answer {
+      color: var(--text-main);
+      margin-bottom: 0;
+    }
+
+    footer {
+      background-color: #1F3864;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.9em;
+      text-align: center;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2em; }
+      nav ul { gap: 8px; }
+      nav a { padding: 8px 12px; font-size: 0.95em; }
+      section { padding: 25px; }
+      .columns-list { column-count: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 섹션: 메인 키워드 포함 H1 및 개요 -->
+  <header>
+    <h1>구미개인회생 자격 조건 및 대구지방법원 수임료 비교 자가진단</h1>
+    <p>경상북도 구미시 관할 법률 상담 센터. 2026년 대폭 인상된 최저생계비 기준 적용. 복잡한 채무 독촉과 강제집행에서 벗어나 법원 접수 즉시 금지명령과 탕감 혜택을 받는 다이렉트 컨설팅 서비스를 안내해 드립니다.</p>
+    <div class="cta-container">
+      <a href="#quote-section" class="cta-btn">무료 비대면 자격 판정 신청하기</a>
+    </div>
+  </header>
+
+  <!-- 내비게이션 -->
+  <nav>
+    <ul>
+      <li><a href="#concept">제도 안내</a></li>
+      <li><a href="#criteria">2026 최저생계비</a></li>
+      <li><a href="#calculator-sec">예상 탕감액 계산</a></li>
+      <li><a href="#gumi-areas">구미 전지역 전략</a></li>
+      <li><a href="#demographics-sec">연령 및 직업별 분석</a></li>
+      <li><a href="#cost-sec">수임료 비용 비교</a></li>
+      <li><a href="#faq-sec">자주 묻는 질문</a></li>
+      <li><a href="#quote-section">실시간 상담 접수</a></li>
+    </ul>
+  </nav>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main>
+
+    <!-- 섹션 1: 구미개인회생의 기초 정의 및 2026년 트렌드 -->
+    <section id="concept">
+      <h2>구미개인회생 제도 정의와 2026년 법률 트렌드 분석</h2>
+      <p>구미개인회생이란 채무자 회생 및 파산에 관한 법률에 따라, 총채무가 담보부채무의 경우 15억 원 이하, 무담보부채무의 경우 10억 원 이하인 개인채무자가 향후 정기적이고 확실한 소득을 얻을 가능성이 있는 경우 법원의 승인을 받아 일정액을 변제하고 남은 원금과 이자를 면책받는 국가 공인 구제 제도입니다. 구미 지역의 주된 법적 분쟁을 담당하는 관할 법원은 대구지방법원 및 대구회생법원으로, 구미시에 주거지를 두거나 경제활동을 영위하는 자영업자 및 직장인이라면 해당 사법 기관의 통제를 받게 됩니다.</p>
+      
+      <p>2026년도에 들어서면서 회생 실무상 큰 변혁이 시행되고 있습니다. 정부는 가파르게 누적된 서민 가계 부채를 완화하기 위해 기준 중위소득을 유례없는 수준인 평균 약 7.2퍼센트까지 인상하였습니다. 이로 인해 가구원 수에 따라 인정되는 최저생계비 한도가 함께 증대되면서 신청인이 매달 법원에 실제로 납부해야 하는 소득 공제 후 금액이 종전에 비해 획기적으로 낮아지는 수혜를 받게 되었습니다. 구미시 송정동 법원 앞 행정 구역에 밀집한 도산 전문 변호사들은 이번 조치로 인해 납입 완료 후 최종 탕감률이 평균적으로 크게 개선될 것으로 예상하고 있습니다.</p>
+
+      <div class="grid-container">
+        <div class="info-card">
+          <h4>법적 효력 개시</h4>
+          <p>구미개인회생 신청서가 법원에 제출되면 대략 1주 내외로 채권자들의 독촉과 압류를 원천적으로 차단하는 중지 및 금지명령이 내려집니다. 이를 통해 본업과 가계 안정을 되찾을 수 있습니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>원금 최대 90퍼센트 감면</h4>
+          <p>이자 채무는 전액 100퍼센트 면제가 원칙이며, 재산 및 소득 평가액에 따라 원금의 경우 최대 90퍼센트 범위까지 공공 법률에 의거하여 공식 탕감을 받을 수 있는 장점이 존재합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>합리적인 경제 활동의 존속</h4>
+          <p>직장에서의 불이익이 없으며 개인 자영업 활동 및 의사, 공무원 등 전문직 신분을 완벽히 유지하며 안전하게 금융 거래를 점진적으로 회복해 나갈 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 2: 2026년 최저생계비 상세 설명 및 적용 기준 -->
+    <section id="criteria">
+      <h2>2026년 법정 최저생계비 및 월 변제 금액 결정 메커니즘</h2>
+      <p>개인회생 변제 안을 통과시키기 위한 핵심 가이드라인은 신청인의 월 평균 소득에서 법원이 인정해 주는 최저생계비 요금을 제외한 나머지 액수인 가용소득 전액을 변제 재원으로 투입하는 데 있습니다. 만약 소득에서 최저생계비를 차감한 금액이 거의 없거나 마이너스라면 기본 요건인 신청 자격 미달로 간주하여 기각을 당할 우려가 큽니다. 그러므로 본인의 주민등록 등본상 부양가족 범위와 실질적 부양 여부를 명확히 소명하여 생계비 공제를 극대화하는 컨설팅 기법이 필요합니다.</p>
+
+      <p>2026년 1월 1일 이후 대구회생법원에 접수되는 신규 사건부터는 대폭 완화된 법정 생계비 조정금액이 고스란히 반영됩니다. 가구원 수에 따른 최신 규정을 확실히 확인하여 자금 집행 설계를 수립해야 합니다.</p>
+
+      <div class="table-container">
+        <h3>2026년 가구원별 최저생계비 세부 기준표</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>가구 인원 수</th>
+              <th>2025년 기준 생계비</th>
+              <th>2026년 확정 최저생계비</th>
+              <th>월 변제금 인하 기대액</th>
+              <th>부양 인정 범위 자격 조건</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1인 가구</td>
+              <td>1,435,208원</td>
+              <td>1,538,542원</td>
+              <td>매월 약 103,334원 인하</td>
+              <td>단독 가구 혹은 맞벌이 부부 중 자녀 미부양자</td>
+            </tr>
+            <tr>
+              <td>2인 가구</td>
+              <td>2,359,595원</td>
+              <td>2,519,575원</td>
+              <td>매월 약 159,980원 인하</td>
+              <td>미성년 자녀 1인을 양육하는 미혼 한부모 가정</td>
+            </tr>
+            <tr>
+              <td>3인 가구</td>
+              <td>3,015,212원</td>
+              <td>3,215,421원</td>
+              <td>매월 약 200,209원 인하</td>
+              <td>부부 및 미성년 자녀 1인 또는 고령 부모 부양자</td>
+            </tr>
+            <tr>
+              <td>4인 가구</td>
+              <td>3,658,664원</td>
+              <td>3,896,842원</td>
+              <td>매월 약 238,178원 인하</td>
+              <td>자녀 2인을 부양하는 일반 외벌이 직장인 가정</td>
+            </tr>
+            <tr>
+              <td>5인 가구</td>
+              <td>4,264,915원</td>
+              <td>4,534,031원</td>
+              <td>매월 약 269,116원 인하</td>
+              <td>다자녀 혹은 장애인 가족을 동거 부양하는 채무자</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>추가적으로 실무상 기본 생계비만으로 현실적인 의식주 생활 유지가 어려운 경우를 입증하면 추가 주거비, 중증 환자 치료용 고정 의료비, 교육 혜택을 위한 공교육 한도 내 자녀 교육비 항목을 가산 적용받을 수 있습니다. 이는 지방 법원의 성향과 각 보정권고 요청에 능숙한 도산 전문 법률대리인 업체의 경험에 따라 상당한 차이점을 지닙니다.</p>
+    </section>
+
+    <!-- 섹션 3: 실시간 구미개인회생 자가 계산기 (체류시간 극대화 요인) -->
+    <section id="calculator-sec">
+      <h2>실시간 구미개인회생 자가 계산기 및 견적 프로그램</h2>
+      <p>본인의 대략적인 월 평균 실수령 급여와 다중 채무 총액, 그리고 현재 보유 중인 총 자산의 가치를 입력하신 뒤 부양가족 수를 설정하시면 대구지방법원 관할국 실무 준칙을 투영한 다이렉트 예상 월 변제 예정액 및 총 탕감 가능 비율을 즉시 계산해 보실 수 있습니다. 인터넷 검색창에 구미개인회생 얼마 혹은 예상 금액을 물어보시는 번거로움 없이 직접 어플 형태의 시뮬레이션을 돌려 보시기 바랍니다.</p>
+
+      <div class="calculator-box">
+        <div class="form-grid">
+          <div class="input-group">
+            <label for="calc-income">본인의 월 평균 실소득 (원 단위)</label>
+            <input type="number" id="calc-income" placeholder="예: 2500000" min="0">
+          </div>
+          <div class="input-group">
+            <label for="calc-debt">총 채무 총액 (원 단위)</label>
+            <input type="number" id="calc-debt" placeholder="예: 50000000" min="0">
+          </div>
+          <div class="input-group">
+            <label for="calc-assets">총 재산 보유액 (예금, 부동산, 보증금 등)</label>
+            <input type="number" id="calc-assets" placeholder="예: 10000000" min="0">
+          </div>
+          <div class="input-group">
+            <label for="calc-dependents">2026 부양의무 가구원 수</label>
+            <select id="calc-dependents">
+              <option value="1">1인 가구 (본인 단독)</option>
+              <option value="2">2인 가구</option>
+              <option value="3">3인 가구</option>
+              <option value="4">4인 가구</option>
+              <option value="5">5인 가구 이상</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calculateRehab()">예상 탕감액 무료 다이렉트 계산하기</button>
+
+        <div id="calc-result">
+          <!-- 계산 결과가 JavaScript를 통해 동적으로 여기에 렌더링됩니다 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 4: 구미 지역별 상세 회생 가이드 (30개 이상 키워드 반영) -->
+    <section id="gumi-areas">
+      <h2>구미시 전 지역별 주거 및 경제적 성향 분석과 최적 대처법</h2>
+      <p>구미시는 국가 산업 벨트를 중심으로 발전해 온 복합 산업 도시의 종류에 해당하므로 각 동별, 읍면별 거주자들의 소득 편차와 금융권 대출 패턴이 판이합니다. 각 거주 행정구역에 최적화된 자격 입증 자료 수립이 승패를 좌우합니다.</p>
+      
+      <p>본 법률 지원센터는 대구회생법원의 깐깐한 서류 검토 절차에 맞춰 구미시 모든 행정구역 거주 및 근무 채무자들을 밀착 밀착 대응하여 드립니다. 아래 본인의 해당 거주 권역 특성을 파악해 보시기 바랍니다.</p>
+
+      <ul class="columns-list">
+        <li><strong>송정동 개인회생 전략:</strong> 구미시청, 법무타운 등이 집중된 핵심 상업 구역으로 변호사 사무소에 직접 내방하여 심층 상담 컨설팅을 받는 30대 및 40대 전문직 자영업자 비중이 높습니다.</li>
+        <li><strong>원평동 개인회생 전략:</strong> 구미역 중심 상권으로 장기적인 경기 불황과 임대료 상승 압박을 견디지 못한 다중채무자 소상공인들의 보증 채무 조정 신청이 집중됩니다.</li>
+        <li><strong>형곡동 개인회생 전략:</strong> 전통적인 학군 중심 주거지로 자녀들의 고액 사교육비 및 주택담보대출 이자 체납으로 고통받는 40대와 50대 외벌이 직장인 비율이 압도적입니다.</li>
+        <li><strong>신평동 개인회생 전략:</strong> 구미공단 초입에 위치하여 현장 생산직 교대 근무자나 일용직 프리랜서의 접수 비중이 매우 높으며 급여 통장 압류 해제 신청이 병행되는 경우가 많습니다.</li>
+        <li><strong>봉곡동 및 도량동 회생전략:</strong> 신축 대단지 아파트가 많은 편으로 보유 주택의 청산가치(부동산 실거래 시세)와 가용 채무 액수를 꼼꼼히 상계 비교하여 청산가치 보장의 원칙을 달성해야 합니다.</li>
+        <li><strong>인동 회생전략 (신동, 황상동, 구평동, 임수동):</strong> 남구미의 대형 상권이자 배후 거주지로 교대 근무 생산직 청년들이 대거 거주하며 사행성 채무나 과도한 비대면 카드론 대출 조정 건이 많이 접수됩니다.</li>
+        <li><strong>옥계동 및 산동읍 전략:</strong> 신규 IT 단지 입주에 따라 젊은 신혼부부 및 20대와 30대 고소득 직장인들이 거주하나 영끌 투자 실패로 인한 토스 대출 등 금융 빚 해결 요청이 활발합니다.</li>
+        <li><strong>선산읍 및 고아읍 법정 전략:</strong> 농촌 상권 및 도농 복합 지대로 농업 종사 자영업자들의 연간 불규칙 영업소득 증빙을 소득세 고지서나 출하 내역서로 입증하는 정밀 작업이 요망됩니다.</li>
+        <li><strong>광평동 및 비산동 법정 전략:</strong> 이마트를 비롯한 유통업 유관 종사자가 주류를 이루며 고용주의 급여 명세 수동 발급 문제에 대비하여 주거래 은행 통장 사본으로 소득 평균 요금을 계산합니다.</li>
+        <li><strong>사곡동 및 상모사곡동 전략:</strong> 영세 공장 임직원이 많아 급여가 일정 기간 밀리거나 불완전한 상태에서 법원에 신속하게 변제계획안 인가를 받아낼 수 있는 보정 대안을 수립해 드립니다.</li>
+        <li><strong>공단동 및 양포동 전략:</strong> 제조 공장 법인 파산 후 연쇄적인 보증 채무 책임으로 인해 다중 채무 상태에 놓인 퇴직 근로자들의 다이렉트 긴급 워크아웃 상담이 수시로 일어납니다.</li>
+        <li><strong>임오동, 거의동, 금전동, 구포동 전략:</strong> 금오공대와 대학가 인근으로 인해 소액 다중 인터넷 신용대출을 상환하지 못해 독촉에 시달리는 대학생, 20대 청년 무직자들의 싼곳 추천 수임료 분납 문의가 많습니다.</li>
+        <li><strong>지산동 및 기타 외곽 권역 (무을면, 옥성면, 도개면, 해평면, 장천면):</strong> 정보 접근성이 취약한 고령자 및 주부들이 주류를 형성하므로 가내 수공업 소득이나 양계 수입 등의 최저생계비를 산출하여 신용불량 상태를 다이렉트로 탈출할 수 있도록 조력합니다.</li>
+      </ul>
+    </section>
+
+    <!-- 섹션 5: 연령 및 주체별 맞춤형 회생 전략 -->
+    <section id="demographics-sec">
+      <h2>연령별 및 직업 주체별 채무 패턴에 따른 맞춤 면책 솔루션</h2>
+      <p>채무가 늘어난 경위와 상환 능력은 생애 주기에 따라 확연한 차이점을 갖게 마련입니다. 대구회생법원은 신청서에 기재된 변제 의지와 채무 경위를 기반으로 변제 금액의 적정 장단점을 평가하므로 연령대별 특화된 변론서 제출이 필수입니다.</p>
+
+      <div class="grid-container">
+        <div class="info-card">
+          <h4>20대 청년 및 대학생</h4>
+          <p>비대면 간편 소액 대출 어플 및 토스, 카카오톡 등을 활용한 잦은 카드론과 가상화폐, 주식, 사행성 게임 실패 빚이 지배적입니다. 최근 채무 비율이 높아 금지명령 기각 리스크가 존재하나, 성실한 갱생 진술서로 변제 계획 인가를 유도합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>30대 및 40대 직장인 주부</h4>
+          <p>결혼 준비와 주택 전세 자금 융통, 가계 양육비 지출로 다중 채무가 형성된 구역입니다. 부부 맞벌이 시 가구원 분배 방안 및 직장의 급여 명세에 포함된 보너스를 수령 기간별 평균 가치로 계산하여 법원의 소득 산출 보정명령에 정교하게 대처해야 합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>50대 및 60대 자영업자 고령층</h4>
+          <p>실직 후 무리한 요식업 프랜차이즈 가맹 창업 실패, 자녀 결혼비 및 사업 양도 채무 책임이 대부분입니다. 은퇴 연령대이므로 정기 노동 능력이 영속할 수 있음을 입증하는 진단서나 간이 고용 서류를 구비하여 파산 대신 영리한 회생안을 가결합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>일용직 및 프리랜서 무직자</h4>
+          <p>고정 급여 증빙이 어려운 건설 일용직 및 라이더 플랫폼 종사자들은 신청 전 최소 1회에서 3회 이상 수령한 급여 거래 내역과 고용주의 확인서를 바탕으로 평균 실수익을 합산 증명하여 안전하게 채무 조정을 신청할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 6: 수임료 비용 분석 및 저렴한곳 vs 전문업체 비교 분석 -->
+    <section id="cost-sec">
+      <h2>구미개인회생 수임료 비용 구조 및 저렴한곳 고르는 가이드</h2>
+      <p>채무로 고장 나 버린 서민들이 법률 구제 수단을 강구할 때, 변호사 수임료 가격 견적에 큰 부담감을 느끼는 것이 당연합니다. 하지만 시중의 무분별한 과대광고나 무자격 사무장 업체에 현혹되어 단순 비교 시 순위가 가장 낮은 저렴한곳 혹은 제일 싼곳만 다이렉트로 추천받아 진행했다가는, 허술한 서류 보정 대처로 인해 금지명령 기각은 물론 월 변제금이 역으로 과다 산정되어 결국 도중에 폐지 처분되는 뼈아픈 단점이 발생할 수 있습니다.</p>
+
+      <p>수임료는 도산 전문 자격 보유 유무와 채권자 기관 수의 크기에 비례하여 평균적으로 책정되므로, 사후 A/S 보장 여부와 수임료 분납 지원금 제도를 다각도로 비교해 보는 장단점 비교 과정이 동반되어야 안전합니다.</p>
+
+      <div class="table-container">
+        <h3>개인회생 법원 공식 요금 및 대리인 수임 가격 예상표</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>비용 발생 항목</th>
+              <th>예상 법정 요금 및 가격대</th>
+              <th>세부 계산 및 산출 원리</th>
+              <th>비용 절감 꿀팁 및 추천 방안</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>정부 인지대</td>
+              <td>약 30,000원 대</td>
+              <td>정부 규정 서류 심사 수수료</td>
+              <td>전자소송 진행 시 법원 자체 10퍼센트 요금 할인 적용</td>
+            </tr>
+            <tr>
+              <td>법원 송달료</td>
+              <td>기본 52,000원 + (채권자수 x 5,200원 x 10회)</td>
+              <td>채무 통지서 등 서류 송부 전용 우편비</td>
+              <td>채권 기관이 많을수록 증가하므로 소멸 시효 채권 정리 필수</td>
+            </tr>
+            <tr>
+              <td>부채증명서 발급 대행료</td>
+              <td>1곳당 10,000원 ~ 15,000원 선</td>
+              <td>각 금융 채권자의 부채 내역 원본 증명 확보 비용</td>
+              <td>전문 법률대리인 측에 실비 일괄 대행 위임 시 시간 대폭 단축</td>
+            </tr>
+            <tr>
+              <td>외부회생위원 선임 보수</td>
+              <td>약 300,000원 (자영업자에 해당)</td>
+              <td>지방 법원의 법률가 실무 감사 비용</td>
+              <td>개인 영업소득자인 경우에 한하여 일시 납부 명령</td>
+            </tr>
+            <tr>
+              <td>변호사 및 법무사 수임료</td>
+              <td>평균 1,200,000원 ~ 2,000,000원 내외</td>
+              <td>상담료, 보정 처리서, 진술 보조 변론 인력 공임</td>
+              <td>목돈 지불이 불가능한 채무자를 위해 3~6개월 무이자 할부 분납 가입</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>합리적인 법무법인들은 의뢰인의 막막한 자금 상황을 고려하여 가입 계약 당일 수임 금액 전액을 선납받지 않고 계약금 조의 일부 금액만 납입하면 즉시 서류를 작성하여 금지명령을 접수해 준 뒤, 나머지 잔여 요금은 단계적으로 수개월 분할 납부할 수 있는 혜택을 널리 마련해 두고 있습니다.</p>
+    </section>
+
+    <!-- 섹션 7: 온라인 커뮤니티 평판 및 AI 기반 탕감 솔루션 -->
+    <section id="social-reviews">
+      <h2>인터넷 커뮤니티 내돈내산 후기 평판 및 AI 컨설팅 동향</h2>
+      <p>최근에는 구미 개인회생 채무자분들이 광고로 가득한 브랜드를 믿기보다는, 국내 대형 인터넷 커뮤니티인 디시인사이드 회생파산 갤러리나 보배드림, 펨코(에펨코리아) 같은 공간에서 생생한 내돈내산 진행 후기들을 크로스 체크하여 진짜 실력 있는 업체를 검증하고 있습니다. 네티즌들의 실제 담론을 확인해 보면, 무조건 싼곳을 추천받아 대리인을 선임했다가 독촉 금지명령 기각 후 추가 비용 보정을 여러 차례 요청받아 눈물을 흘린 사연들이 수두룩합니다.</p>
+
+      <p>또한 시대가 변함에 따라 네이버 지식인이나 구글 검색 뿐만 아니라 최첨단 생성형 인공지능 기술인 제미나이(Gemini), 챗지피티(ChatGPT), 그리고 모바일 토스 앱의 채무 진단 분석 서비스 등을 활용하여 본인의 원금 감면 비율과 합리적인 가격 계산 결과를 사전에 다이렉트로 비교 컨설팅받는 지혜로운 소비 패턴이 급속도로 확장되고 있습니다. 신뢰성 높은 AI 도산 분석 기능은 법원에서 반려될 소지가 다분한 조건부 인가 조항이나 청산 가치 보장 리스크를 선제적으로 잡아내어 승소율을 비약적으로 가속하는 순기능을 담당하고 있습니다.</p>
+    </section>
+
+    <!-- 섹션 8: 개인회생 신청부터 인가까지의 10단계 핵심 흐름도 -->
+    <section id="procedure-sec">
+      <h2>구미개인회생 신청서 접수부터 면책까지의 10단계 핵심 흐름</h2>
+      <p>대구회생법원의 꼼꼼한 사법 절차를 무사히 통과하기 위해 전체적인 소송 단계별 가이드라인을 사전에 완전히 숙지해야 불필요한 보정 지연 사태를 사전에 예방할 수 있습니다.</p>
+      
+      <div class="grid-container">
+        <div class="info-card">
+          <h4>01단계: 무료 법률 상담</h4>
+          <p>전문 변호사 법률 주치의를 통해 소득, 채무, 재산 현황을 투명하게 컨설팅하여 면책 성패 여부를 완벽히 분석합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>02단계: 기초 서류 구비</h4>
+          <p>주민등록초본, 가족관계증명서, 지방세세목별과세증명서, 직장 급여 증명 등 대구법원 제출 양식 서류를 철저히 구비합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>03단계: 법원 사건 접수</h4>
+          <p>관할인 대구지방법원 또는 대구회생법원에 변제계획안과 신청 요지서를 포함한 전자소송 접수 절차를 다이렉트로 단행합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>04단계: 금지 중지명령</h4>
+          <p>소송 접수 후 통상 7일 이내에 법원의 명령서가 공표되어 채권 독촉, 압류 위협 등 일체의 강제 집행이 전면 중단됩니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>05단계: 보정권고 권고 수렴</h4>
+          <p>법원이 회생 위원을 배정하여 최근 대출 건의 상세한 사용처 입증 및 누락 재산 소명 요구 보정 권고를 내리면 즉각 회신합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>06단계: 회생 개시결정</h4>
+          <p>서류 통과 완료 단계로 법정 월 변제금을 성실히 입금할 가상 신규 법원 예금 계좌번호를 정식으로 부여받습니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>07단계: 이의신청 기간</h4>
+          <p>약 2개월간 채권자 측에서 변제 안 금액의 비율에 이의를 표명할 수 있으나 실무적으로 법정 기한 경과 시 원만히 해결됩니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>08단계: 채권자 집회 참석</h4>
+          <p>신청 당사자가 대구지방법원에 지정된 일자에 본인 신분증을 지참하여 직접 1회 출석하여 신분과 갱생 의지를 재확인합니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>09단계: 인가 결정 선고</h4>
+          <p>법원이 변제안을 공식 승인하여 대외 공시를 띄우며, 이때부터 본격적으로 연체 기록 및 신용불량 정보 등록이 해제 해지됩니다.</p>
+        </div>
+        <div class="info-card">
+          <h4>10단계: 3년 납입 후 면책</h4>
+          <p>약정된 36개월간 매월 누락 없이 납부 계좌에 송금하고 나면 남은 모든 원금과 이자가 공식 파기되어 제2의 인생을 시작합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 9: 자주 묻는 질문 FAQ (10문 10답) -->
+    <section id="faq-sec">
+      <h2>구미개인회생 자주 묻는 질문 (전문 법률 답변)</h2>
+      <div class="faq-list">
+        
+        <div class="faq-item">
+          <p class="faq-question">질문 1. 구미시 거주자가 꼭 대구까지 가야 하나요?</p>
+          <p class="faq-answer">답변. 아니요, 갈 필요가 전혀 없습니다. 대한민국 법원은 완전한 인터넷 온라인 전자소송 시스템을 도입하였기 때문에 송정동이나 옥계동 등 구미 현지에서 비대면 모바일 및 PC 상으로 모든 서류를 대행 접수할 수 있습니다. 법정 직접 출석은 오직 마지막 채권자 집회 1회로 한정됩니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 2. 주식 투자나 비트코인 코인 빚, 도박 빚도 탕감이 가능한가요?</p>
+          <p class="faq-answer">답변. 대구지방법원은 타 지역 법원에 비해 최근에 발생한 투자 사행성 빚을 엄격하게 평가하는 것으로 명망이 높습니다. 투자 상실금을 본인 재산인 청산가치에 전액 산입하도록 보정이 내려오는 경우가 많아 월 변제금이 높게 책정될 위험이 존재하지만, 정교한 변론 보강과 지속 가능한 분배 계획을 소명하여 인가를 성공시킨 전례가 무수합니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 3. 현재 직장에서 일한 지 한 달도 안 되었는데 신청 자격이 부여되나요?</p>
+          <p class="faq-answer">답변. 가능합니다. 신규 가입한 직장에서 최소 1회 이상의 정상적인 월급 및 아르바이트 일당을 수령한 명세 기록과 근로 계약 관련 입증서를 구비하면, 향후 성실하게 지속적으로 소득이 발생할 것임을 법원에 정당하게 증명할 수 있으므로 당일 접수가 가능합니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 4. 남편 몰래, 혹은 직장 동료들이 모르게 완벽한 비밀 진행이 가능한가요?</p>
+          <p class="faq-answer">답변. 그렇습니다. 법률사무소와 법원 간의 일체의 서류 전달 행위는 전용 전자소송 아이디를 통해 완전 비공개 처리됩니다. 우편물의 송수신지 역시 거주하시는 자택 대신 위임을 맡기신 대리인 변호사 법률 사무소 주소지로 다이렉트 고정되어 처리되기 때문에 주변에서 전혀 알 수 없습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 5. 개인파산 신청 제도와의 극명한 차이점은 무엇인가요?</p>
+          <p class="faq-answer">답변. 가장 뚜렷한 차이점은 재산의 처분 여부와 현재 소득 여부에 있습니다. 개인파산은 보유 재산을 전액 처분하여 채권자에게 균등 배당하고 채무 전액을 즉시 청산받아 무직 상태인 고령자에게 유리한 반면, 개인회생은 본인의 귀중한 주택과 자동차 등의 자산을 그대로 유지 보호하면서 매달 소득의 일정액만 분할 상환하는 차이가 있습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 6. 수임료 분납 시 첫 계약금은 대략 평균 얼마 선에서 결정되나요?</p>
+          <p class="faq-answer">답변. 초기 법원 접수를 위한 착수금 성격의 계약금은 법무법인마다 자율적으로 책정되나, 통상 10만원에서 30만원 상당의 소액 수준에서 수용됩니다. 이 첫 착수금만 안전하게 수수되면 즉시 금융기관 채권자들에 대한 중지 금지명령 신청서를 가동하게 되므로 경제적 부담이 매우 적습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 7. 신용불량 상태인데 핸드폰 개통이나 전세 자금 대출 연장이 가능한가요?</p>
+          <p class="faq-answer">답변. 핸드폰 가입 및 본인 명의 개통은 선불 유심을 탑재하거나 보증보험 발행을 통과하면 즉각 복원됩니다. 또한 법원의 정식 인가 결정문이 도출되어 채무 불이행자 명부 등재 기재 사항이 완전히 말소되면 1금융권 전세대출 등 필수적 여신 심사 역시 일정한 가점 조항과 보완책을 거쳐 점진적으로 재개할 수 있게 됩니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 8. 보증인이 따로 연대 보증을 섰던 부채는 어떻게 흘러가나요?</p>
+          <p class="faq-answer">답변. 주 채무자가 개인회생을 선포하여 접수를 하더라도 연대 보증인에게 부여된 변제 연대 책임 의무는 사법적으로 소멸하지 않고 고스란히 남아 해당 채권자들의 타겟 추심이 독촉될 수 있습니다. 따라서 보증 가족 역시 상환이 곤란하다면 부부 동시 회생 프로그램 등 복합적인 안전 장치에 공동 가입하는 편을 적극 권장해 드립니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 9. 변제 기간인 3년 동안 성실히 갚다가 중간에 소득이 끊겨 연체되면 어떻게 되나요?</p>
+          <p class="faq-answer">답변. 연속으로 총 3회차 이상 월 가용 변제금이 입금되지 않고 연체될 경우 사법부 회생위원은 도중에 직권으로 폐지 명령을 신청할 권한을 가집니다. 부득이하게 실직, 질병, 상해 등으로 사정이 곤란해졌다면 변제 계획안의 일부 금액 수정 신청을 신속히 접수하여 생계 제한 폭을 늘려 가거나 기간 연장을 요구해야 낭패를 입지 않습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-question">질문 10. 사채나 사채성 일수, 보증금 미반환 빚, 보이스피싱 연루 채무도 신청이 될까요?</p>
+          <p class="faq-answer">답변. 네, 1금융권, 저축은행, 신용카드 대출은 물론 합법적인 사금융업, 개인 간에 주고받은 차용증 기반 채무, 그리고 보증 채무 일체까지 성실하고 객관적으로 채권자 기재 확인이 가능하다면 제한 없이 전 종류의 채무를 개인회생 제도의 보호 테두리 안에 통합하여 일괄 구제받으실 수 있습니다.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 섹션 10: 체류시간 극대화용 멀티스텝 정밀 진단 신청 폼 -->
+    <section id="quote-section">
+      <h2>비대면 무료 구미개인회생 자격 정밀 판정 상담 신청서</h2>
+      <p>구미시 전 지역 자영업자 및 직장인, 주부, 청년을 위해 준비된 100퍼센트 안전 비공개 간이 진단 접수 폼입니다. 본 정보 컨설팅 요금은 일절 청구되지 않으며 기재하신 모든 채무 현황은 사건 가능성 유무 검토를 위한 용도로만 안전하게 활용된 후 즉시 소멸 처리되오니 편안하게 요청해 주시기 바랍니다.</p>
+
+      <div class="multi-step-container">
+        <div class="step-indicator">
+          <span class="ind-step active" id="ind-1">1단계. 신상 정보</span>
+          <span class="ind-step" id="ind-2">2단계. 채무 자산 정보</span>
+          <span class="ind-step" id="ind-3">3단계. 정밀 접수 완료</span>
+        </div>
+
+        <form id="rehab-full-form" onsubmit="submitRehabForm(event)">
+          <!-- Step 1 -->
+          <div class="form-step active" id="form-step-1">
+            <h3>1단계. 신청 고객 기본 자격 요건 판정</h3>
+            <p class="form-desc">대구회생법원의 관할 지역 적용 여부 및 신청 대리인 위임에 필요한 기본 명세입니다.</p>
+            
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-name">고객 성함 (실명 기재)</label>
+              <input type="text" id="user-name" placeholder="홍길동" required>
+            </div>
+            
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-phone">연락처 (정밀 분석 결과 문자 수령용)</label>
+              <input type="tel" id="user-phone" placeholder="010-1234-5678" required>
+            </div>
+
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-age">연령구분 선택</label>
+              <select id="user-age" required>
+                <option value="20">20대 청년 대학생</option>
+                <option value="30">30대 직장인 주부</option>
+                <option value="40">40대 중장년층 직장인</option>
+                <option value="50">50대 개인 자영업 근로자</option>
+                <option value="60">60대 이상 고령 연금 생활자</option>
+              </select>
+            </div>
+
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-region">구미시 거주 행정구역 선택</label>
+              <select id="user-region" required>
+                <option value="송정동">송정동 일대</option>
+                <option value="원평동">원평동 역세권</option>
+                <option value="형곡동">형곡동 교육지대</option>
+                <option value="신평동">신평동 공단지구</option>
+                <option value="봉곡동">봉곡동 주거지역</option>
+                <option value="인동">인동 (신동, 황상, 구평, 임수)</option>
+                <option value="옥계동">옥계동 공업단지 배후</option>
+                <option value="산동읍">산동읍 신축 아파트 권역</option>
+                <option value="선산읍">선산읍 및 고아읍 도농복합지</option>
+                <option value="기타">기타 구미 전 지역 면소재지</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn-next" onclick="goToStep(2)">다음 자산 분석 단계로 이동</button>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="form-step" id="form-step-2">
+            <h3>2단계. 채무 및 자산 청산가치 검토</h3>
+            <p class="form-desc">보유 재산 시세액이 빚 총액보다 작아야 신청이 가능하다는 청산가치 규정을 확인하는 핵심 절차입니다.</p>
+            
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-debt">현재 연체 중이거나 납부 예정인 총 채무 가치 총액</label>
+              <select id="user-debt" required>
+                <option value="12000000">1천 5백만원 미만 (단독 신청 시 기각 가능성 있음)</option>
+                <option value="35000000">1천 5백만원 이상 ~ 5천만원 미만</option>
+                <option value="80000000">5천만원 이상 ~ 1억원 미만</option>
+                <option value="250000000">1억원 이상 ~ 3억원 미만</option>
+                <option value="700000000">3억원 이상 ~ 10억원 미만</option>
+                <option value="1200000000">10억원 이상 (담보 채무 한도 정밀 진단 요망)</option>
+              </select>
+            </div>
+
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-assets">보유 중인 총 재산 자치 평가액 (예금, 주택 보증금, 부부 공유 재산 등)</label>
+              <select id="user-assets" required>
+                <option value="0">자산이 전혀 없거나 채무에 비해 매우 미미함</option>
+                <option value="15000000">1천 5백만원 이하</option>
+                <option value="45000000">1천 5백만원 초과 ~ 5천만원 이하</option>
+                <option value="95000000">5천만원 초과 ~ 1억원 이하</option>
+                <option value="250000000">1억원 초과 주택 보유</option>
+              </select>
+            </div>
+
+            <div class="input-group" style="margin-bottom:15px;">
+              <label for="user-income-type">정기 소득 발생 경제활동 종류</label>
+              <select id="user-income-type" required>
+                <option value="급여근로자">4대보험 가입 급여근로자 (정상 직장인)</option>
+                <option value="개인사업자">개인 자영업 소상공인 (소득세 신고)</option>
+                <option value="일용직근로">생산 현장직 건설 일용근로자 / 계약직</option>
+                <option value="프리랜서">학원 강사 / 보험 설계 / 특수 고용 프리랜서</option>
+                <option value="기타">현재 무직 (주말 단기 파트타임 구직 예정자 포함)</option>
+              </select>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn-prev" onclick="goToStep(1)">이전 단계로</button>
+              <button type="button" class="btn-next" onclick="goToStep(3)">마지막 완료 단계로 이동</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="form-step" id="form-step-3">
+            <h3>3단계. 비공개 법률상담 및 정밀 분석 접수 약관 동의</h3>
+            <p class="form-desc">수렴된 개인정보는 타인에게 일절 고지되지 않으며 사생활을 영속 보장합니다.</p>
+
+            <div class="input-group checkbox-group" style="margin-bottom:20px;">
+              <input type="checkbox" id="user-agree" checked required>
+              <label for="user-agree">개인정보 보호 수집 조항 및 무료 변제금 계산 상담 결과 고지 수신에 온전히 동의합니다.</label>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn-prev" onclick="goToStep(2)">이전 단계로</button>
+              <button type="submit" class="btn-submit">무료 안심 사전 분석 요청서 전송</button>
+            </div>
+          </div>
+        </form>
+        
+        <div id="form-result-message" style="display:none; text-align:center; padding: 30px; background-color: var(--secondary-light); border-radius: var(--border-radius); border: 1px solid var(--secondary-color); margin-top:20px;">
+          <h4 style="color:var(--secondary-color); margin-bottom:10px; font-weight: 700;">비대면 채무 사전 진단이 완벽하게 접수되었습니다.</h4>
+          <p>전달하신 데이터를 기반으로 구미 지역 대구회생법원 보정 담당 전문 법률 보좌팀이 정밀 도산 가능 여부 및 가용 월 생계 한도를 사전 계산해 드립니다. 기재해주신 신뢰 연락처로 자격 요건 판독 소견과 예상 요금이 담긴 맞춤 메시지를 발송해 드릴 예정이오니 잠시만 편안히 대기해 주시기 바랍니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 11: 공신력 있는 외부 정보처 링크 -->
+    <section id="resources">
+      <h2>대한민국 공신력 법률 자문 외부 참고 사이트 안내</h2>
+      <p>구미개인회생 소송 진행이나 개인파산 신용회복 제도의 상세 정책 및 주택임대차보호법 최신 개정 고시를 정석으로 탐색하고자 하신다면, 정부가 지정한 공공 포털 사이트들을 이용하셔서 법적 객관성을 자가 입증하시는 길을 추천해 드립니다.</p>
+      
+      <ul class="external-links-list">
+        <li><a href="https://recoverybylawsh.koreahankang.com" target="_blank" rel="noopener">reliabledone 공식 지정 구미 법률 지원 센터: 무료 법률 지원 체계 및 지역 우수 파트너 정보 검색 포털 사이트입니다.</a></li>
+        <li><a href="https://namu.wiki/w/%EA%B0%9C%EC%9D%B8%ED%9A%8C%EC%83%9D" target="_blank" rel="noopener">나무위키 개인회생 백과사전: 법정 제도의 유래와 채권 분류, 변제금 전부 투입의 원칙 등 대중적 시선에서 잘 쓰인 개설 문서를 참고하십시오.</a></li>
+        <li><a href="https://daegu.scourt.go.kr" target="_blank" rel="noopener">대구지방법원 사법 포털: 경상북도 구미 지역 사건의 중지 명령과 송달료 예납 영수증 관리, 본인 사건 번호 조회를 위한 실무 홈페이지입니다.</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- JavaScript 연산 로직 구현 -->
+  <script>
+    // 1. 예상 탕감액 무료 다이렉트 계산기 로직
+    function calculateRehab() {
+      const income = parseInt(document.getElementById('calc-income').value) || 0;
+      const debt = parseInt(document.getElementById('calc-debt').value) || 0;
+      const assets = parseInt(document.getElementById('calc-assets').value) || 0;
+      const dependents = parseInt(document.getElementById('calc-dependents').value) || 1;
+
+      // 2026 가구원별 최저생계비 고정값 정의
+      const livingExpenses = {
+        1: 1538542,
+        2: 2519575,
+        3: 3215421,
+        4: 3896842,
+        5: 4534031
+      };
+
+      const selectedLivingExpense = livingExpenses[dependents] || 3896842;
+      const outputDiv = document.getElementById('calc-result');
+      outputDiv.style.display = 'block';
+
+      // 예외 1: 소득이 최저생계비보다 작거나 같은 경우
+      if (income <= selectedLivingExpense) {
+        outputDiv.innerHTML = `
+          <div style="padding: 15px; border-left: 5px solid #D9534F; background-color: #FDF2F2;">
+            <h4 style="color:#D9534F; margin-top:0;">진단 불통과: 고정 소득 요건 한도 미달</h4>
+            <p style="margin-bottom:0;">입력하신 월 소득(${income.toLocaleString()}원)이 2026년 기준 선택하신 ${dependents}인 가구 최저생계비(${selectedLivingExpense.toLocaleString()}원)보다 적어 회생 절차가 기각될 수 있습니다. 부업이나 신규 소득 활동을 계획하여 월평균 소득을 최저생계비 이상으로 상향 조정한 뒤 재계산해 보시거나 본원 전문 컨설턴트와의 상담 예약을 활용해 보십시오.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // 예외 2: 재산이 채무보다 많거나 같은 경우 (청산가치 보장 원칙 위배)
+      if (assets >= debt) {
+        outputDiv.innerHTML = `
+          <div style="padding: 15px; border-left: 5px solid #D9534F; background-color: #FDF2F2;">
+            <h4 style="color:#D9534F; margin-top:0;">진단 불통과: 청산가치 초과</h4>
+            <p style="margin-bottom:0;">보유하신 총 자산 가치(${assets.toLocaleString()}원)가 부채 총액(${debt.toLocaleString()}원)보다 크거나 같으므로 파산 원인 사실이 성립되지 않아 기각됩니다. 다만 임대차 보증금 면제재산 요금 공제 혜택이나 배우자 자산 기여도 평가 방식을 세분화하면 자산 평가액이 낮아질 수 있으므로, 다이렉트 정밀 재산 실사를 받아보시는 것이 안전합니다.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // 월 변제금 계산 (가용소득 = 소득 - 생계비)
+      let monthlyDisposable = income - selectedLivingExpense;
+      let totalRepayment = monthlyDisposable * 36;
+
+      // 청산가치 만족 여부 검사 (3년 변제액 총합이 자산보다 적을 경우, 변제율 인상 조치 적용)
+      if (totalRepayment < assets) {
+        totalRepayment = assets;
+        monthlyDisposable = Math.ceil(assets / 36);
+        if (monthlyDisposable > income) {
+          outputDiv.innerHTML = `
+            <div style="padding: 15px; border-left: 5px solid #D9534F; background-color: #FDF2F2;">
+              <h4 style="color:#D9534F; margin-top:0;">수행 불능 결과 분석</h4>
+              <p style="margin-bottom:0;">청산가치 보장 원칙에 따라 산정된 가상 월 변제금(${monthlyDisposable.toLocaleString()}원)이 현재 고객님의 월 소득을 뛰어넘어 정상 회생이 불가능합니다. 자산 매각 혹은 부채 탕감률 보정 조율이 필요하니 빠른 무료 정밀 법리 판정을 신청하시기 바랍니다.</p>
+            </div>
+          `;
+          return;
+        }
+      }
+
+      // 총 변제금이 총 빚을 초과하는 것을 한도 제어
+      if (totalRepayment > debt) {
+        totalRepayment = debt;
+        monthlyDisposable = Math.ceil(debt / 36);
+      }
+
+      const estimatedCancellation = debt - totalRepayment;
+      const cancellationRate = ((estimatedCancellation / debt) * 100).toFixed(1);
+
+      outputDiv.innerHTML = `
+        <div style="padding: 15px; border-left: 5px solid #2E8B57; background-color: #F4FAF7;">
+          <h4 style="color:#2E8B57; margin-top:0; font-weight:700;">2026년 기준 예상 시뮬레이션 합격</h4>
+          <table class="result-table" style="width:100%; border-collapse:collapse; margin-bottom:15px;">
+            <tr>
+              <th style="padding:8px; border:1px solid #D3D3D3;">신청 구분</th>
+              <td style="padding:8px; border:1px solid #D3D3D3;">구미 관할 대구지방법원 접수 가능군</td>
+            </tr>
+            <tr>
+              <th style="padding:8px; border:1px solid #D3D3D3;">인정 법정 생계비</th>
+              <td style="padding:8px; border:1px solid #D3D3D3;">${selectedLivingExpense.toLocaleString()}원 (${dependents}인 가구 기준)</td>
+            </tr>
+            <tr>
+              <th style="padding:8px; border:1px solid #D3D3D3;">예상 월 변제금</th>
+              <td style="padding:8px; border:1px solid #D3D3D3; color:#D9534F; font-weight:700;">${monthlyDisposable.toLocaleString()}원 (36개월 분납)</td>
+            </tr>
+            <tr>
+              <th style="padding:8px; border:1px solid #D3D3D3;">3년 총 상환 금액</th>
+              <td style="padding:8px; border:1px solid #D3D3D3;">${totalRepayment.toLocaleString()}원</td>
+            </tr>
+            <tr>
+              <th style="padding:8px; border:1px solid #D3D3D3;">총 탕감 예상금액</th>
+              <td style="padding:8px; border:1px solid #D3D3D3; font-weight:700; color:#2E8B57;">${estimatedCancellation.toLocaleString()}원</td>
+            </tr>
+            <tr>
+              <th style="padding:8px; border:1px solid #D3D3D3;">예상 채무 감면율</th>
+              <td style="padding:8px; border:1px solid #D3D3D3; font-weight:700; color:#2E8B57;">${cancellationRate}% 탕감 통과 기대</td>
+            </tr>
+          </table>
+          <p style="font-size:0.85em; color:#555555; line-height:1.6; margin-bottom:0;">본 계산 결과치는 단순한 기본 중위소득 대입형 간이 견적 수치입니다. 실제 대구지방법원 보정 심사에서는 채권 기관의 종류, 사행성 빚 여부, 부동산 평가 가액 편차 등에 따라 가격 차이가 발생하오니 정밀 상담을 이어서 진행하시기 바랍니다.</p>
+        </div>
+      `;
+    }
+
+    // 2. 멀티스텝 신청서 전용 스크립트
+    function goToStep(stepNum) {
+      // 폼 유효성 체크 (다음 단계로 갈 때 필수값 점검)
+      if (stepNum === 2) {
+        const name = document.getElementById('user-name').value;
+        const phone = document.getElementById('user-phone').value;
+        if (!name || !phone) {
+          alert("성함과 연락처는 정밀 진단을 도출하기 위한 필수 기재 사항입니다.");
+          return;
+        }
+      }
+
+      // 모든 스텝 숨기기
+      const steps = document.querySelectorAll('.form-step');
+      steps.forEach(step => step.classList.remove('active'));
+
+      // 모든 인디케이터 초기화
+      const indicators = document.querySelectorAll('.ind-step');
+      indicators.forEach(ind => ind.classList.remove('active'));
+
+      // 타겟 스텝 및 인디케이터 활성화
+      document.getElementById('form-step-' + stepNum).classList.add('active');
+      document.getElementById('ind-' + stepNum).classList.add('active');
+    }
+
+    // 3. 신청서 제출 완료 동작
+    function submitRehabForm(event) {
+      event.preventDefault(); // 기본 리프레시 중단
+
+      // 입력된 데이터 검출
+      const name = document.getElementById('user-name').value;
+      const phone = document.getElementById('user-phone').value;
+      const age = document.getElementById('user-age').value;
+      const region = document.getElementById('user-region').value;
+      const debt = document.getElementById('user-debt').value;
+      const assets = document.getElementById('user-assets').value;
+      const incomeType = document.getElementById('user-income-type').value;
+
+      // 화면에 정상 가동 메시지 렌더링
+      document.getElementById('rehab-full-form').style.display = 'none';
+      document.getElementById('form-result-message').style.display = 'block';
+    }
+  </script>
+  
